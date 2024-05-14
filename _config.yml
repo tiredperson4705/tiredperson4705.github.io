@@ -296,8 +296,7 @@ collections:
     permalink:         /tag-:name/
     output:            true
 
-  projects:
-    permalink:         /projects/:path/
+  project:
     output:            true
 
 
