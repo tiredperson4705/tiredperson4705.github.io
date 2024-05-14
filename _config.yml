@@ -50,7 +50,7 @@ menu:
   - title:             Blogs
     url:               /blog/
   - title:             Projects
-    url:               /projects/
+    url:               /project/
   - title:             About
     url:               /about/
     
@@ -75,6 +75,8 @@ permalink:             /:categories/:year-:month-:day-:title/
 paginate:              10
 paginate_path:         /blog/:num/
 
+paginate:              10
+paginate_path          /project/:num/
 
 # Theme
 # ---------------------------------------------------------------------------------------
@@ -88,12 +90,12 @@ remote_theme: hydecorp/hydejack@v9
  
 # Sidebar image and theme color of the site.
 accent_image:          /assets/img/Aces3.jpeg
-accent_color:          rgb(255,255,255))
+accent_color:          rgb(79,177,186)
 
 # This is used for the `theme-color` meta tag,
 # which changes the background color of the browser UI in certain browsers.
 # Defaults to `accent_color`.
-theme_color:           rgb(255,255,255)
+theme_color:           rgb(14,17,22)
 
 # The string encoding which fonts to fetch from Google Fonts.
 # See: <https://hydejack.com/docs/configuration/>
@@ -116,7 +118,7 @@ defaults:
   - scope:
       path:            hyde/
     values:
-      accent_color:    rgb(255,255,255)
+      accent_color:    rgb(38,139,210)
       theme_color:     rgb(255,255,255)
       accent_image:
         background:    rgb(255,255,255)
