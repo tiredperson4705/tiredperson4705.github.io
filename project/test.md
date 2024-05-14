@@ -1,6 +1,6 @@
 ---
-layout:      list
-title:       Home
+layout:      page
+title:       test
 ---
 
 this better work ffs
