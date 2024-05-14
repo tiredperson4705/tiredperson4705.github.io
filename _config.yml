@@ -14,6 +14,10 @@
 
 # General settings
 # ---------------------------------------------------------------------------------------
+#allows for bruh.md and _bruh to function
+collections:
+  bruh:
+    output: true
 
 # Language of your content in 2-letter code, e.g.: en, de.
 # You may also provide a location, e.g.: en-us, de_AT.
@@ -52,7 +56,7 @@ menu:
   - title:             Blogs
     url:               /asdfghjkl/
   - title:             Projects
-    url:               /proj/
+    url:               /blog/
   
     
 
