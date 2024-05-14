@@ -117,7 +117,7 @@ defaults:
       path:            hyde/
     values:
       accent_color:    rgb(38,139,210)
-      theme_color:     rgb(32,32,32)
+      theme_color:     rgb(255,255,255)
       accent_image:
         background:    rgb(32,32,32)
         overlay:       false
