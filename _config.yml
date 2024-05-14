@@ -52,7 +52,7 @@ menu:
   - title:             Blogs
     url:               /blog/
   - title:             Projects
-    url:               /bruh/
+    url:               /posts/
     
 
 # Add links to the footer.

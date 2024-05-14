@@ -5,5 +5,7 @@
 
 body {
     background-image: url('assets/img/book.jpg');
+    background-size: cover; /* Adjust background size as needed */
+    background-repeat: no-repeat;
     color: black; 
 }
