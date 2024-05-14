@@ -1,8 +1,8 @@
 ---
-layout: list
-title: "Test Post"
-last_modified_at: 2018-08-03
-sitemap: false
+layout:      project
+title:       Hyde v2*
+date:        2 Jan 2014
+featured:    false
 ---
 
 ## Hello world
