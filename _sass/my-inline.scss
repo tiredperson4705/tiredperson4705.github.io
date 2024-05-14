@@ -4,8 +4,14 @@
 // }
 
 body {
-    background-image: url('assets/img/book.jpg');
-    background-size: cover; /* Adjust background size as needed */
-    background-repeat: no-repeat;
+    background-color: #bbbbbb;
     color: black; 
+}
+
+p {
+    color: black;
+}
+
+a:hover {
+    color: rgb(130, 188, 241);
 }
