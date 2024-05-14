@@ -50,7 +50,7 @@ menu:
   - title:             Blogs
     url:               /blog/
   - title:             Projects
-    url:               /project/
+    url:               /projects/
   - title:             About
     url:               /about/
     
@@ -297,7 +297,7 @@ collections:
     output:            true
 
   projects:
-    permalink:         /project/:path/
+    permalink:         /projects/:path/
     output:            true
 
 
