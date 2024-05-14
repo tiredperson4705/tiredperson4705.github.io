@@ -20,8 +20,8 @@
 lang:                  en
 
 # The title of your blog. Used in the sidebar and the browser tab.
-title:                Ryan Wong
-
+- title:                Ryan Wong
+  animation:            "glitch"
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
@@ -50,10 +50,13 @@ author:
 menu:
   - title:             Blogs
     url:               /blog/
+    animation:         "glitch"
   - title:             Projects
     url:               /project/
+    animation:         "glitch"
   - title:             About
     url:               /about/
+    animation:         "glitch"
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..

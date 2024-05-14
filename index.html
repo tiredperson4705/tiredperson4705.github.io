@@ -14,3 +14,13 @@
   <p>
     I don't know what I'm going to put here yet. Come back again to find out!
   </p>
+
+
+  {% for item in site.data.config_text %}
+  {% assign animation_class = item.animation %}
+  {% if animation_class == "glitch" %}
+      <span class="glitch"><span class="animated glitch">{{ item.text }}</span></span>
+  {% else %}
+      <span>{{ item.text }}</span>
+  {% endif %}
+{% endfor %}
