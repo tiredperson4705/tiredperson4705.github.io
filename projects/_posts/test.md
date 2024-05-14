@@ -1,9 +1,13 @@
 ---
-layout:      list
+layout:      post
 title:       Hyde v2*
 date:        2 Jan 2014
-featured:    false
+description: >
+  this is a test description
+sitemap:     false
 ---
+
+this better work ffs
 
 ## Hello world
 
