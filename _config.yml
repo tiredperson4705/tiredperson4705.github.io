@@ -47,12 +47,12 @@ author:
 
 # Add links to the sidebar.
 menu:
+  - title:             About
+    url:               /about/
   - title:             Blogs
     url:               /blog/
   - title:             Projects
-    url:               /project/
-  - title:             About
-    url:               /about/
+    url:               /posts/
     
 
 # Add links to the footer.
