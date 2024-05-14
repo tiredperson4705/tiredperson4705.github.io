@@ -50,9 +50,10 @@ menu:
   - title:             About
     url:               /about/
   - title:             Blogs
-    url:               /blog/
-  - title:             Projects
     url:               /asdfghjkl/
+  - title:             Projects
+    url:               /proj/
+  
     
 
 # Add links to the footer.
