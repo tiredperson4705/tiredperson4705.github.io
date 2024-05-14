@@ -1,5 +1,5 @@
 ---
-layout:      project
+layout:      list
 title:       Hyde v2*
 date:        2 Jan 2014
 featured:    false
