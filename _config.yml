@@ -296,7 +296,7 @@ collections:
     permalink:         /tag-:name/
     output:            true
 
-  project:
+  bruh:
     output:            true
 
 
