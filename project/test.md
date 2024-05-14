@@ -1,7 +1,7 @@
 ---
 layout: list
-title: Test post
-date: 2022-05-23 12:00:00 -500
+title: "Test Post"
+last_modified_at: 2018-08-03
 sitemap: false
 ---
 
