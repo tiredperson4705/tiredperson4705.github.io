@@ -5,9 +5,12 @@ description: >
   This is a test layout
 hide_description: true
 sitemap: false
-cover: false
+permalink: /blog/
+cover: true
 ---
 
+## fun things
+---
 * [Test]{:.heading.flip-title} --- this is a test format
 {:.related-posts.faded}
 
