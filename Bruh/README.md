@@ -2,9 +2,10 @@
 layout: page
 title: Test
 sitemap: false
+title_effect: true
 ---
 
-* [Test Blog] --- This is a test blog
+* [Test Blog](blog_test.md) --- This is a test blog
   ![Test Blog Thumbnail](/assets/img/book.jpg)
 
 
@@ -13,4 +14,3 @@ sitemap: false
 
 
 
-[test Blog]: 2024-05-13-blog_test.md
