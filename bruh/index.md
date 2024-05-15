@@ -6,7 +6,7 @@ description: >
 hide_description: true
 sitemap: false
 permalink: /bruh/
-cover: true
+cover: true #i think this added the dark mode for some reason
 ---
 
 * [Test]{:.heading.flip-title} --- this is a test format
