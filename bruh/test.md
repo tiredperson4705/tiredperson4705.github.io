@@ -1,7 +1,7 @@
 ---
 layout:      page
 title:       test blog
-date:        2024-05-13
+sitemap:     false
 ---
 
 this better work ffs
