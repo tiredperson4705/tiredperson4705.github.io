@@ -11,11 +11,6 @@ permalink: /bruh/
 ## fun things
 ---
 * [Test]{:.heading.flip-title} --- This is a test blog
-
-
-
-
-
-
+{:.related-posts.faded}
 
 [test]: test.md
