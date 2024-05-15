@@ -3,10 +3,10 @@ layout: page
 title: Test
 sitemap: false
 title_effect: true
-permalink: /docs/
+permalink: /bruh
 ---
 
-* [Test](test.md) --- This is a test blog
+* [Test](/bruh/_lists/test.md) --- This is a test blog
 
 
 
