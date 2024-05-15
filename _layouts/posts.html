@@ -1,5 +1,12 @@
-{% if page.layout == 'post' %}
-    <!-- Render content for blog posts -->
-    <h1>{{ page.title }}</h1>
-    <p>{{ page.content }}</p>
-{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  {% include my-head.html %}
+</head>
+<body>
+  <!-- Your post content here -->
+</body>
+</html>
