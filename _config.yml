@@ -54,9 +54,9 @@ menu:
   - title:             About
     url:               /about/
   - title:             Blogs
-    url:               /bruh/
-  - title:             Projects
     url:               /blog/
+  - title:             Projects
+    url:               /project/
   
     
 
@@ -78,7 +78,7 @@ permalink:             /:categories/:year-:month-:day-:title/
 
 # Pagination configuration (used by the `blog` layout)
 paginate:              10
-paginate_path:         /blog/:num/
+paginate_path:         /project/:num/
 
 
 # Theme
