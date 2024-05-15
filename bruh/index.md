@@ -6,6 +6,7 @@ description: >
 hide_description: true
 sitemap: false
 permalink: /bruh/
+cover: true
 ---
 
 ## fun things
