@@ -5,7 +5,7 @@ description: >
   This is a test layout
 hide_description: true
 sitemap: false
-cover: true #i think this added the dark mode for some reason
+cover: true
 ---
 
 * [Test]{:.heading.flip-title} --- this is a test format
