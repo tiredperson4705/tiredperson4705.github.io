@@ -1,5 +1,5 @@
 ---
-layout:      post
+layout:      page
 title:       test blog
 date:        2024-05-13
 title_effect: true

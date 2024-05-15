@@ -3,7 +3,7 @@ layout: page
 title: Test
 sitemap: false
 title_effect: true
-permalink: /Bruh
+permalink: /
 ---
 
 * [Test](/Blog/test.md) --- This is a test blog

@@ -1,9 +1,10 @@
 body {
     color: #ccc;
-    background: #111;
+    background: #bbbbbb;
     font-family: Noto Sans;
   }
-  
+  /* background: #111 */
+
   h1,
   h2 {
     margin: 0;

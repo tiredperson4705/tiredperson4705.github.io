@@ -1,11 +1,48 @@
 ---
-layout: blog
-title: Blog
-description: >
-  The official Hydejack blog. Version updates, example content and how-to guides on how to blog with Jekyll.
-last_modified_at: 2018-08-03
-no_link_title: false 
-no_excerpt: false 
-hide_image: false
-cover: true
+layout: page
+cover:  true
 ---
+
+<style>
+  /* Style for the button */
+  button.return-button {
+    background-color: transparent; /* Transparent background */
+    color: rgba(0, 0, 0, 0); /* transparenttext */
+    border: none; /* No border */
+    font-size: 18px;
+ font-family: "Noto Sans"; /* Use Noto Sans font */
+    cursor: pointer;
+position: fixed; /* Position fixed */
+    top: 20px; /* 20px from the top */
+    left: 20px; /* 20px from the left */
+    z-index: 1000; /* Ensure it's on top of other elements */
+  }
+</style>
+</head>
+<body>
+
+
+<button class="return-button" onclick="navigateToURL('https://tiredperson47.github.io/about/')">Returnnn</button>
+
+
+<script>
+function navigateToURL(url) {
+  window.location.href = url;
+}
+</script>
+
+
+<section>
+
+  <link rel="stylesheet" href="style.css">
+  <div class="hero-container">
+    <h1 class="hero glitch layers" data-text="You found me" style="position: absolute; top: 50px; left: 50%; transform: translateX(-50%);">
+      <span>You found me</span></h1>
+  </div>
+
+  <h5 class="hero glitch layers" data-text="Return" style="position: absolute; top: -5px; left: 20px; font-size: 18px;">
+    <span>Return</span>
+</h5>
+</section>
+
+<p style="text-align: center;"> I don't know what to put here. Come back later to see something fun!</p>
