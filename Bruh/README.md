@@ -6,7 +6,7 @@ title_effect: true
 permalink: /Bruh
 ---
 
-* [Test](/Blog/test.md) --- This is a test blog
+* [Test](test.md) --- This is a test blog
   ![Test Blog Thumbnail](/assets/img/book.jpg)
 
 
