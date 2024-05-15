@@ -9,6 +9,7 @@ permalink: /bruh/
 ---
 
 ## fun things
+---
 * [Test]{:.heading.flip-title} --- This is a test blog
 
 
