@@ -54,7 +54,7 @@ menu:
   - title:             About
     url:               /about/
   - title:             Blogs
-    url:               /bruh/
+    url:               /bruh/index.md
   - title:             Projects
     url:               /blog/
   
