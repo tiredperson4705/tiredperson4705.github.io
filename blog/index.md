@@ -5,6 +5,7 @@ description: >
   This is a test layout
 hide_description: true
 sitemap: false
+cover: false
 ---
 
 * [Test]{:.heading.flip-title} --- this is a test format
