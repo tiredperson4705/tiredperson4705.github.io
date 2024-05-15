@@ -2,6 +2,9 @@
 layout:      page
 title:       test blog
 sitemap:     false
+image: /assets/img/book.jpg
+description: >
+    I hope this works
 ---
 
 this better work ffs
