@@ -12,7 +12,7 @@ cover: true
 
   <link rel="stylesheet" href="/style.css">
   <div class="hero-container">
-	<h1 class="hero glitch layers" data-text="Blogs" style="position: absolute; top: 5px; left: 3px;">
+	<h1 class="hero glitch layers" data-text="Blogs" style="position: absolute; top: 5px; left: 0px;">
   	<span>Blogs</span></h1>
   </div>
 

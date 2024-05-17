@@ -73,8 +73,8 @@ copyright:             © 2024. All rights reserved.
 permalink:             /:categories/:year-:month-:day-:title/
 
 # Pagination configuration (used by the `blog` layout)
-paginate:              10
-paginate_path:         /project/:num/
+#paginate:              10
+#paginate_path:         /project/:num/
 
 
 # Theme
