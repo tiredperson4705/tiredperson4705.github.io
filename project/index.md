@@ -37,7 +37,14 @@ cover: true
 <!-- Add more posts here -->
 </div>
 
-## Software
+<!--Software category below: -->
+<style>
+    .header {
+      padding-top: 60px;
+    }
+</style>
+
+<h2 class="header">Software</h2>
 ---
 <div style="display: flex; flex-wrap: wrap; gap: 20px;">
 <!-- Add more posts here -->
