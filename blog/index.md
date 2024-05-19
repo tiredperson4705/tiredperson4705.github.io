@@ -26,7 +26,7 @@ cover: true
 <div style="width: 400px;">
   <div style="flex: 1 1 calc(50% - 10px); box-sizing: border-box; position: relative; height: 400px;">
     <a href="https://tiredperson47.github.io/blog/ITC" style="display: block; position: relative; height: 100%; width: 100%;">
-      <img src="/assets/img/ITCcheck.jpeg" alt="ITC" style="width: 100%; height: 100%; max-height: 275px; object-fit: cover; border-radius: 8px;"/>
+      <img src="/assets/img/ITCcheck1.jpeg" alt="ITC" style="width: 100%; height: 100%; max-height: 275px; object-fit: cover; border-radius: 8px;"/>
      <div style="padding: 1em; background: #505050; color: white; border-radius: 0 0 8px 8px; position: absolute; bottom: 0; left: 0; right: 0; max-height: 130px; overflow-y: auto;">
         <h3 style="margin-top: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">ITC 2024</h3>
         <p style="white-space: normal; margin: 0;">The Information Technology Competition (ITC) is a penetration testing competition where groups of up to five people form a pseudo pentesting company and compete based on findings, report writing, and presentation. In this comptition our team was given the opportunity to gain real world experience in pentesting and explore the insecurities of Active Directory, common misconfigurations, and AI.</p>

@@ -2,7 +2,7 @@
 layout:      page
 title:       test blog
 sitemap:     false
-image: /assets/img/ITCcheck.jpeg
+image: /assets/img/ITCcheck1.jpeg
 ---
 
 <!--this css code will fix all color issues -->
