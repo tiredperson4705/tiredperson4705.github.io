@@ -1,3 +1,6 @@
+Updates to keyboard shortcuts … On Thursday, August 1, 2024, Drive keyboard shortcuts will be updated to give you first-letters navigation.Learn more
+<!DOCTYPE html>
+
 <style>
   /* Style for the button */
   button.return-button {
@@ -19,7 +22,6 @@ position: fixed; /* Position fixed */
 
 <button class="return-button" onclick="navigateToURL('https://tiredperson47.github.io/about/')">Returnnn</button>
 
-
 <script>
 function navigateToURL(url) {
   window.location.href = url;
@@ -31,8 +33,8 @@ function navigateToURL(url) {
 
   <link rel="stylesheet" href="style.css">
   <div class="hero-container">
-    <h1 class="hero glitch layers" data-text="You found me" style="position: absolute; top: 50px; left: 50%; transform: translateX(-50%);">
-      <span>You found me</span></h1>
+    <h1 class="hero glitch layers" data-text="Let's Play a Game" style="position: absolute; top: 50px; left: 50%; transform: translateX(-50%);">
+      <span>Let's Play a Game</span></h1>
   </div>
 
   <h5 class="hero glitch layers" data-text="Return" style="position: absolute; top: -5px; left: 20px; font-size: 18px;">
@@ -40,4 +42,111 @@ function navigateToURL(url) {
 </h5>
 </section>
 
-<p style="text-align: center;"> I don't know what to put here. Come back later to see something fun!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easter Egg</title>
+    <style>
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #textbox {
+            position: relative;
+            width: 700px;
+            height: 400px;
+            Margin-top: -200px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #242424; /* shade of grey */
+	    border-radius: 8px;
+            font-family: 'Noto Sans';
+	    text-align: center;
+	    line-height: 2;
+	    padding: 0 40px;
+	    font-size: 18px;
+        }
+	#health-container {
+	    position: relative;
+	    top: 10px;
+	    background: none;
+	    text-align: center;
+	    color: white;
+	    border-radius: 8px;
+            font-family: 'Noto Sans';
+	}
+
+	#lives {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #fff;
+            background: none;
+            border: none;
+            text-align: center;
+            width: 50px;
+            outline: none; /* Remove default outline */
+	    font-family: 'Noto Sans';
+        }
+
+        #input-container {
+            display: flex;
+            justify-content: center;
+            width: 80%;
+            font-family: 'Noto Sans';
+        }
+        #user-input {
+            width: 700px;
+            padding: 10px;
+            background-color: #242424; /* shade of grey */
+            font-size: 16px;
+            border: none;
+	    color: #fff;
+            border-radius: 8px;
+            font-family: 'Noto Sans';
+        }
+        #start-button {
+            padding: 10px 20px;
+            font-size: 24px;
+            background-color: none;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-family: 'Noto Sans';
+	    transition: color 0.3 ease;
+        }
+	#start-button:hover {
+	color: #750707;
+	}
+        #toggle {
+            display: none;
+        }
+        #toggle:checked + #textbox #start-button {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <input type="checkbox" id="toggle">
+	<div id="textbox">
+		<label for="toggle" id="start-button">Start</label>
+        </div>
+        <div id="input-container">
+            <input type="text" id="user-input" placeholder="Enter your choice here">
+        </div>
+	 <div id="health-container">
+                <label for="lives">Lives:</label>
+                <input type="text" id="lives" disabled>
+         </div>
+
+    </div>
+    <script src="/game.js"></script>
+</body>
+</html>
