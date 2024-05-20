@@ -1,12 +1,13 @@
 // Define global variables for game state and positions
 let gameState = "start"; // Initial state
-let playerLives = 3;
+let playerLives = 5;
 let goblinsDefeated = 0;
 let goblinPositions = [];
 let goblinLives = 2;
 let ogreLives = 5;
 let advancement = 0; // Track player's advancement
 let goblinIndex = 0;
+let restart = 0;
 
 const outputBox = document.getElementById("textbox");
 const inputBox = document.getElementById("user-input");
@@ -92,21 +93,26 @@ function handleGoblinFight(input) {
                 playerLife--;
                 outputBox.innerText += "\nBoth you and the goblin lose a life";
                 updateHealth();
+                outputBox.innerText += `\n\n1. Attack \n2. Block\n`;
             } else if ([1, 5, 9].includes(goblinAction)) { // Goblin blocks
                 outputBox.innerText += "\nThe goblin blocked the attack";
 		updateHealth();
+        outputBox.innerText += `\n\n1. Attack \n2. Block\n`;
             } else { // Goblin does nothing
                 goblinLives--;
                 outputBox.innerText += "\nYou hit the goblin";
 		updateHealth();
+        outputBox.innerText += `\n\n1. Attack \n2. Block\n`;
             }
         } else if (input === "2") { // Player blocks
             if ([0, 4, 8].includes(goblinAction)) { // Goblin attacks
                 outputBox.innerText += "\nYou blocked the goblin's attack";
 		updateHealth();
+        outputBox.innerText += `\n\n1. Attack \n2. Block\n`;
             } else {
                 outputBox.innerText += "\nYou both blocked (nothing happens)";
 		updateHealth();
+        outputBox.innerText += `\n\n1. Attack \n2. Block\n`;
             }
         }
 
@@ -122,14 +128,13 @@ function handleGoblinFight(input) {
             gameState = "movement";
 	    setTimeout(() => {
             outputBox.innerText = "\n1. Move forward\n2. Move left\n3. Move right";
-            }, 1300);
+            }, 1000);
 	}
 
         if (playerLife <= 0) {
             gameOver("dead");
         }
     }
-outputBox.innerText += `\n\n1. Attack \n2. Block\n`;
 }
 
 function handleOgreFight(input) {
@@ -150,58 +155,66 @@ function handleOgreFight(input) {
                 playerLife--;
                 outputBox.innerText += "\nBoth you and the ogre lose a life";
 		updateHealth();
+        outputBox.innerText += `\n\n1. Attack \n2. Block\n`;
             } else if ([1, 3, 7].includes(ogreAction)) { // Ogre blocks
                 outputBox.innerText += "\nThe ogre blocked the attack";
 		updateHealth();
+        outputBox.innerText += `\n\n1. Attack \n2. Block\n`;
             } else { // Ogre does nothing
                 ogreLives--;
                 outputBox.innerText += "\nYou hit the ogre";
 		updateHealth();
+        outputBox.innerText += `\n\n1. Attack \n2. Block\n`;
             }
         } else if (input === "2") { // Player blocks
             if ([0, 2, 6, 8].includes(ogreAction)) { // Ogre attacks
                 outputBox.innerText += "\nYou blocked the ogre's attack";
 		updateHealth();
+        outputBox.innerText += `\n\n1. Attack \n2. Block\n`;
             } else {
                 outputBox.innerText += "\nYou both blocked (nothing happens)";
 		updateHealth();
+        outputBox.innerText += `\n\n1. Attack \n2. Block\n`;
             }
         }
 
         if (ogreLives <= 0) {
-	   setTimeout(() => { 
+        const goblins = countGoblins();
+        setTimeout(() => { 
 	   if (goblinsDefeated === goblins) {
                 gameOver("good");
             } else {
                 gameOver("bad");
             }
-	   }, 1300);
+	   }, 1000);
         }
         if (playerLife <= 0) {
 	    setTimeout(() => {
             gameOver("dead");
-	    }, 1300);
+	    }, 1000);
         }
     }
-setTimeout(() => {
-outputBox.innerText = `\n\n1. Attack \n2. Block\n`;
-}, 2250);
 }
 
 function gameOver(ending) {
+    let quote = randomQuote();
     if (ending === "good") {
         outputBox.innerText = "You’ve defeated the ogre and protected your village!";
-	outputBox.innerText += "\n\nLife is a game of chance. We may not always get what we want, but it's the possibility of failure and taking risks that make it fun.\n\nWould you like to play again?\n1. Yes\n2. No";
+        outputBox.innerText += quote;
+        outputBox.innerText += "\n\nWould you like to play again?\n1. Yes\n2. No";
 	gameState = "restart";
     } else if (ending === "bad") {
         outputBox.innerText = "You’ve defeated the ogre! But you missed some goblins… They ran to the village and killed your family. All alone with nothing to protect… you kill yourself in despair.\n\n";
-	outputBox.innerText += "\n\n\nIt's easy to take the easy route and go straight towards the goal, but where's the fun in that? Enjoy your surroundings and do the side quest for a change.\n\nWould you like to play again?\n1. Yes\n2. No";
-	gameState = "restart";
+	    outputBox.innerText += quote;
+	    outputBox.innerText += "\n\nWould you like to play again?\n1. Yes\n2. No";
+    gameState = "restart";
     } else if (ending === "dead") {
 	setTimeout(() => {
         outputBox.innerText = "You died. \nWould you like to play again?\n1. Yes\n2. No";
+        outputBox.innerText += quote;
+        outputBox.innerText += "Would you like to play again?\n1. Yes\n2. No";
         gameState = "restart";
-	}, 1400);
+	}, 1050);
     }
 }
 
@@ -215,11 +228,21 @@ function restartGame(input) {
         ogreLives = 5;
         genPositions();
         advancement = 0; // Reset advancement
-	goblinIndex = 0;
-	updateHealth();
-	const goblins = countGoblins();
+	    goblinIndex = 0;
+	    updateHealth();
+	    const goblins = countGoblins();
+        restart++;
+        if (restart >= 5) {
+            outputBox.innerText = `You either really like this game or really like killing goblins`;
+        } else if (restart >= 10) {
+            outputBox.innerText = `You're really determined to win lol. GL`;
+        } else if (restart >= 20) {
+            outputBox.innerText = `I think it's time to give up.`;
+        } else if (restart >= 30) {
+            outputBox.innerText = `Bro...`;
+        }
     } else if (input === "2") {
-        outputBox.innerText = "Thank you for playing!";
+        outputBox.innerText = "Thanks for playing!";
         gameState = "end";
     }
 }
@@ -243,7 +266,6 @@ function genPositions() {
     }
 }
 
-
 function countGoblins() {
     let totalCount = 0;
 
@@ -255,3 +277,19 @@ function countGoblins() {
 
     return totalCount;
 }
+
+function randomQuote() {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    return quotes[randomIndex];
+}
+
+const quotes = [
+    `"Life is a game of chance. We may not always get what we want, but it's the possibility of failure and taking risks that make it fun."`,
+    `"It's easy to take the quick route and go straight towards the goal, but where's the fun in that? Enjoy your surroundings and do the side quest for a change"`,
+    `"What kind of life lesson did you learn from this game?"`,
+    `"Doing extra work makes life harder and could kill you, but sometimes you get a sweeter reward."`,
+    `"Made in China"`,
+    `"/finding Real progress, estarossa Regains glory-They never yelled. Yet recently Everyone laughed."`,
+    `"Fight with honor! Die with GLORY!"`;
+];
+
