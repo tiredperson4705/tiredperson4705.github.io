@@ -1,7 +1,7 @@
 body {
     color: #ccc;
-    background: #2b2b2b;
-    font-family: Noto Sans;
+    background: #222222;
+    font-family: 'Noto Sans', sans-serif;
   }
   /* background: #111 */
 
@@ -11,13 +11,13 @@ body {
   }
   
   a {
-    color: #313131;
+    color: #ccc;
   }
   
-section {
-	padding: 0px;
-}  
-
+  section {
+    padding: 20px;
+  }
+  
   .hero {
     font-size: clamp(10px, 10vw, 25px);
     line-height: 1;

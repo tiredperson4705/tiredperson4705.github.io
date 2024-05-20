@@ -57,7 +57,7 @@ function handleMovement(input) {
         } else {
 	    setTimeout(() => {
             outputBox.innerText = "\n1. Move forward\n2. Move left\n3. Move right";
-            }, 2000);
+            }, 1000);
 	}
     } else if (input === "2" || input === "3") {
         const direction = input === "2" ? "left" : "right";
@@ -93,43 +93,58 @@ function handleGoblinFight(input) {
                 playerLife--;
                 outputBox.innerText += "\nBoth you and the goblin lose a life";
                 updateHealth();
-                outputBox.innerText += `\n\n1. Attack \n2. Block\n`;
+                setTimeout(() => {
+                    outputBox.innerText = `\n\n1. Attack \n2. Block\n`;
+                    }, 1000);
             } else if ([1, 5, 9].includes(goblinAction)) { // Goblin blocks
                 outputBox.innerText += "\nThe goblin blocked the attack";
-		updateHealth();
-        outputBox.innerText += `\n\n1. Attack \n2. Block\n`;
+		        updateHealth();
+                setTimeout(() => {
+                    outputBox.innerText = `\n\n1. Attack \n2. Block\n`;
+                    }, 1000);
             } else { // Goblin does nothing
                 goblinLives--;
                 outputBox.innerText += "\nYou hit the goblin";
-		updateHealth();
-        outputBox.innerText += `\n\n1. Attack \n2. Block\n`;
+		        updateHealth();
+                setTimeout(() => {
+                    outputBox.innerText = `\n\n1. Attack \n2. Block\n`;
+                    }, 1000);
             }
         } else if (input === "2") { // Player blocks
             if ([0, 4, 8].includes(goblinAction)) { // Goblin attacks
                 outputBox.innerText += "\nYou blocked the goblin's attack";
-		updateHealth();
-        outputBox.innerText += `\n\n1. Attack \n2. Block\n`;
+		        updateHealth();
+                setTimeout(() => {
+                    outputBox.innerText = `\n\n1. Attack \n2. Block\n`;
+                    }, 1000);
             } else {
-                outputBox.innerText += "\nYou both blocked (nothing happens)";
-		updateHealth();
-        outputBox.innerText += `\n\n1. Attack \n2. Block\n`;
-            }
+                outputBox.innerText += "\nYou both blocked (or nothing happens)";
+		    updateHealth();
+                setTimeout(() => {
+                    outputBox.innerText = `\n\n1. Attack \n2. Block\n`;
+                    }, 1000);
+          }
         }
 
         if (goblinLives <= 0) {
             goblinsDefeated++;
+            setTimeout (() => {
             outputBox.innerText = "\n\nYou defeated the goblin!\n\n";
             if (Math.floor(Math.random() * 10) === 1) {
                 playerLife++;
                 outputBox.innerText += "\n\nYou found a health potion and gained a life!\n\n";
                 updateHealth();
             }
-            goblinLives = 2; // Reset goblin lives for the next encounter
-            gameState = "movement";
+            if ([0, 4, 8].includes(goblinAction)) {
+                outputBox.innerText += "\nThe goblin attacked. You lose a life as well."
+            }
+        goblinLives = 2; // Reset goblin lives for the next encounter
+        gameState = "movement";
 	    setTimeout(() => {
             outputBox.innerText = "\n1. Move forward\n2. Move left\n3. Move right";
-            }, 1000);
-	}
+            }, 2500);
+        }, 1100);
+    }
 
         if (playerLife <= 0) {
             gameOver("dead");
@@ -154,27 +169,37 @@ function handleOgreFight(input) {
                 ogreLives--;
                 playerLife--;
                 outputBox.innerText += "\nBoth you and the ogre lose a life";
-		updateHealth();
-        outputBox.innerText += `\n\n1. Attack \n2. Block\n`;
+		        updateHealth();
+                setTimeout(() => {
+                    outputBox.innerText = `\n\n1. Attack \n2. Block\n`;
+                    }, 1000);
             } else if ([1, 3, 7].includes(ogreAction)) { // Ogre blocks
                 outputBox.innerText += "\nThe ogre blocked the attack";
-		updateHealth();
-        outputBox.innerText += `\n\n1. Attack \n2. Block\n`;
+		        updateHealth();
+                setTimeout(() => {
+                    outputBox.innerText = `\n\n1. Attack \n2. Block\n`;
+                    }, 1000);
             } else { // Ogre does nothing
                 ogreLives--;
                 outputBox.innerText += "\nYou hit the ogre";
-		updateHealth();
-        outputBox.innerText += `\n\n1. Attack \n2. Block\n`;
+		        updateHealth();
+                setTimeout(() => {
+                    outputBox.innerText = `\n\n1. Attack \n2. Block\n`;
+                    }, 1000);
             }
         } else if (input === "2") { // Player blocks
             if ([0, 2, 6, 8].includes(ogreAction)) { // Ogre attacks
                 outputBox.innerText += "\nYou blocked the ogre's attack";
-		updateHealth();
-        outputBox.innerText += `\n\n1. Attack \n2. Block\n`;
+		        updateHealth();
+                setTimeout(() => {
+                    outputBox.innerText = `\n\n1. Attack \n2. Block\n`;
+                    }, 1000);
             } else {
-                outputBox.innerText += "\nYou both blocked (nothing happens)";
-		updateHealth();
-        outputBox.innerText += `\n\n1. Attack \n2. Block\n`;
+                outputBox.innerText += "\nYou both blocked (or nothing happens)";
+		        updateHealth();
+                setTimeout(() => {
+                    outputBox.innerText = `\n\n1. Attack \n2. Block\n`;
+                    }, 1000);
             }
         }
 
@@ -186,12 +211,12 @@ function handleOgreFight(input) {
             } else {
                 gameOver("bad");
             }
-	   }, 1000);
+	   }, 1050);
         }
         if (playerLife <= 0) {
 	    setTimeout(() => {
             gameOver("dead");
-	    }, 1000);
+	    }, 1050);
         }
     }
 }
@@ -222,7 +247,8 @@ function restartGame(input) {
     if (input === "1") {
         gameState = "narrative";
         outputBox.innerText = `(You are a knight in the village of Estarossa)\n"You need to defeat the ogre that has be threatening our village. He get's closer every day... Keep going forward and you'll find him."\n-Village Chief\n(press enter in input box to continue)`;
-        playerLife = 3;
+        playerLife = 5;
+        goblinPositions = [];
         goblinsDefeated = 0;
         goblinLives = 2;
         ogreLives = 5;
@@ -290,6 +316,6 @@ const quotes = [
     `"Doing extra work makes life harder and could kill you, but sometimes you get a sweeter reward."`,
     `"Made in China"`,
     `"/finding Real progress, estarossa Regains glory-They never yelled. Yet recently Everyone laughed."`,
-    `"Fight with honor! Die with GLORY!"`;
+    `"Fight with honor! Die with GLORY!"`,
 ];
 

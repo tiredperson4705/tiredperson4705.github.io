@@ -109,3 +109,17 @@ cover: true
 <!--Add thm posts here -->
 
 </div>
+
+<!--Other category below: -->
+<style>
+    .header {
+      padding-top: 60px;
+    }
+</style>
+
+<h2 class="header">Others</h2>
+---
+<div style="display: flex; flex-wrap: wrap; gap: 20px;">
+<!--Add other posts here -->
+
+</div>
