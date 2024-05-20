@@ -51,7 +51,7 @@ function handleMovement(input) {
 	goblinIndex++;
         outputBox.innerText = "\nYou move forward.\n";
         if (advancement === 7) {
-            outputBox.innerText = "\nYou encounter the ogre! Prepare to fight!\n";
+            outputBox.innerText = "\nYou encounter the ogre! Prepare to fight!";
             outputBox.innerText += `\n\n1. Attack \n2. Block\n`;
 	    gameState = "ogreFight";
         } else {
@@ -63,7 +63,7 @@ function handleMovement(input) {
         const direction = input === "2" ? "left" : "right";
 	const goblinPosition = goblinPositions[goblinIndex];
         if (goblinPosition === direction) {
-            outputBox.innerText = `\nYou encounter a goblin to the ${direction}!\nPrepare to fight!\n`;
+            outputBox.innerText = `\nYou encounter a goblin to the ${direction}!\nPrepare to fight!`;
             outputBox.innerText += `\n\n1. Attack \n2. Block\n`;
             gameState = "goblinFight";
         } else {
@@ -94,20 +94,20 @@ function handleGoblinFight(input) {
                 outputBox.innerText += "\nBoth you and the goblin lose a life";
                 updateHealth();
                 setTimeout(() => {
-                    outputBox.innerText = `\n\n1. Attack \n2. Block\n`;
+                    outputBox.innerText = `\n\n1. Attack \n2. Block`;
                     }, 1000);
             } else if ([1, 5, 9].includes(goblinAction)) { // Goblin blocks
                 outputBox.innerText += "\nThe goblin blocked the attack";
 		        updateHealth();
                 setTimeout(() => {
-                    outputBox.innerText = `\n\n1. Attack \n2. Block\n`;
+                    outputBox.innerText = `\n\n1. Attack \n2. Block`;
                     }, 1000);
             } else { // Goblin does nothing
                 goblinLives--;
                 outputBox.innerText += "\nYou hit the goblin";
 		        updateHealth();
                 setTimeout(() => {
-                    outputBox.innerText = `\n\n1. Attack \n2. Block\n`;
+                    outputBox.innerText = `\n\n1. Attack \n2. Block`;
                     }, 1000);
             }
         } else if (input === "2") { // Player blocks
@@ -115,13 +115,13 @@ function handleGoblinFight(input) {
                 outputBox.innerText += "\nYou blocked the goblin's attack";
 		        updateHealth();
                 setTimeout(() => {
-                    outputBox.innerText = `\n\n1. Attack \n2. Block\n`;
+                    outputBox.innerText = `\n\n1. Attack \n2. Block`;
                     }, 1000);
             } else {
                 outputBox.innerText += "\nYou both blocked (or nothing happens)";
 		    updateHealth();
                 setTimeout(() => {
-                    outputBox.innerText = `\n\n1. Attack \n2. Block\n`;
+                    outputBox.innerText = `\n\n1. Attack \n2. Block`;
                     }, 1000);
           }
         }
@@ -129,14 +129,14 @@ function handleGoblinFight(input) {
         if (goblinLives <= 0) {
             goblinsDefeated++;
             setTimeout (() => {
-            outputBox.innerText = "\n\nYou defeated the goblin!\n\n";
+            outputBox.innerText = "\n\nYou defeated the goblin!";
             if (Math.floor(Math.random() * 10) === 1) {
                 playerLife++;
-                outputBox.innerText += "\n\nYou found a health potion and gained a life!\n\n";
+                outputBox.innerText += "\nYou found a health potion and gained a life!";
                 updateHealth();
             }
             if ([0, 4, 8].includes(goblinAction)) {
-                outputBox.innerText += "\nThe goblin attacked. You lose a life as well."
+                outputBox.innerText += "\n\nThe goblin attacked. You lose a life as well."
             }
         goblinLives = 2; // Reset goblin lives for the next encounter
         gameState = "movement";
@@ -171,20 +171,20 @@ function handleOgreFight(input) {
                 outputBox.innerText += "\nBoth you and the ogre lose a life";
 		        updateHealth();
                 setTimeout(() => {
-                    outputBox.innerText = `\n\n1. Attack \n2. Block\n`;
+                    outputBox.innerText = `1. Attack \n2. Block`;
                     }, 1000);
             } else if ([1, 3, 7].includes(ogreAction)) { // Ogre blocks
                 outputBox.innerText += "\nThe ogre blocked the attack";
 		        updateHealth();
                 setTimeout(() => {
-                    outputBox.innerText = `\n\n1. Attack \n2. Block\n`;
+                    outputBox.innerText = `1. Attack \n2. Block`;
                     }, 1000);
             } else { // Ogre does nothing
                 ogreLives--;
                 outputBox.innerText += "\nYou hit the ogre";
 		        updateHealth();
                 setTimeout(() => {
-                    outputBox.innerText = `\n\n1. Attack \n2. Block\n`;
+                    outputBox.innerText = `1. Attack \n2. Block`;
                     }, 1000);
             }
         } else if (input === "2") { // Player blocks
@@ -192,13 +192,13 @@ function handleOgreFight(input) {
                 outputBox.innerText += "\nYou blocked the ogre's attack";
 		        updateHealth();
                 setTimeout(() => {
-                    outputBox.innerText = `\n\n1. Attack \n2. Block\n`;
+                    outputBox.innerText = `1. Attack \n2. Block`;
                     }, 1000);
             } else {
                 outputBox.innerText += "\nYou both blocked (or nothing happens)";
 		        updateHealth();
                 setTimeout(() => {
-                    outputBox.innerText = `\n\n1. Attack \n2. Block\n`;
+                    outputBox.innerText = `1. Attack \n2. Block`;
                     }, 1000);
             }
         }
@@ -235,9 +235,9 @@ function gameOver(ending) {
     gameState = "restart";
     } else if (ending === "dead") {
 	setTimeout(() => {
-        outputBox.innerText = "You died. \nWould you like to play again?\n1. Yes\n2. No";
+        outputBox.innerText = "You died.\n\n";
         outputBox.innerText += quote;
-        outputBox.innerText += "Would you like to play again?\n1. Yes\n2. No";
+        outputBox.innerText += "\n\nWould you like to play again?\n1. Yes\n2. No";
         gameState = "restart";
 	}, 1050);
     }
@@ -317,5 +317,19 @@ const quotes = [
     `"Made in China"`,
     `"/finding Real progress, estarossa Regains glory-They never yelled. Yet recently Everyone laughed."`,
     `"Fight with honor! Die with GLORY!"`,
+    `"Tis but a scratch"`,
+    `"Yay if you won, or rip if you died. idk which"`,
+    `"And I ate... the ~Croissant"`,
+    `"Let's go again! Let's go again!"`,
+    `"Did you get all 3 victory endings?"`,
+    `"A flying pig has hit the second hut."`,
+    `"I wonder where I put my 7500 piece Millenium Falcon..."`,
+    `"The universe is constantly expanding, but what is it expanding into? -Ferb"`,
+    `"Knock knock" "Dad?" "What? No." -TAWOG`,
+    `"Thanos is an angry grape with a rock collection."`,
+    `(You meet your pen-pal girlfriend) "Uncle?"`,
+    `"If you break your legs, just walk it off!"`,
+    `"Yes, I would love you if you were a worm"`,
+    `You should run "sudo rm -rf /" in linux (I'm legally not responisble for any consequences this may bring)`,
 ];
 
