@@ -1,6 +1,6 @@
 // Define global variables for game state and positions
 let gameState = "start"; // Initial state
-let playerLives = 5;
+let playerLives = 3;
 let goblinsDefeated = 0;
 let goblinPositions = [];
 let goblinLives = 2;
@@ -52,7 +52,7 @@ function handleMovement(input) {
         outputBox.innerText = "\nYou move forward.\n";
         if (advancement === 7) {
             outputBox.innerText = "\nYou encounter the ogre! Prepare to fight!";
-            outputBox.innerText += `\n\n1. Attack \n2. Block\n`;
+            outputBox.innerText += `\n1. Attack \n2. Block\n`;
 	    gameState = "ogreFight";
         } else {
 	    setTimeout(() => {
@@ -64,7 +64,7 @@ function handleMovement(input) {
 	const goblinPosition = goblinPositions[goblinIndex];
         if (goblinPosition === direction) {
             outputBox.innerText = `\nYou encounter a goblin to the ${direction}!\nPrepare to fight!`;
-            outputBox.innerText += `\n\n1. Attack \n2. Block\n`;
+            outputBox.innerText += `\n1. Attack \n2. Block\n`;
             gameState = "goblinFight";
         } else {
             outputBox.innerText = `\nYou move ${direction} and find nothing...\n1. Move forward\n2. Move left\n3. Move right`;
@@ -224,20 +224,20 @@ function handleOgreFight(input) {
 function gameOver(ending) {
     let quote = randomQuote();
     if (ending === "good") {
-        outputBox.innerText = "You’ve defeated the ogre and protected your village!";
+        outputBox.innerText = "You’ve defeated the ogre and protected your village!\n";
         outputBox.innerText += quote;
-        outputBox.innerText += "\n\nWould you like to play again?\n1. Yes\n2. No";
+        outputBox.innerText += "\nWould you like to play again?\n1. Yes\n2. No";
 	gameState = "restart";
     } else if (ending === "bad") {
         outputBox.innerText = "You’ve defeated the ogre! But you missed some goblins… They ran to the village and killed your family. All alone with nothing to protect… you kill yourself in despair.\n\n";
 	    outputBox.innerText += quote;
-	    outputBox.innerText += "\n\nWould you like to play again?\n1. Yes\n2. No";
+	    outputBox.innerText += "\nWould you like to play again?\n1. Yes\n2. No";
     gameState = "restart";
     } else if (ending === "dead") {
 	setTimeout(() => {
-        outputBox.innerText = "You died.\n\n";
+        outputBox.innerText = "You died.\n";
         outputBox.innerText += quote;
-        outputBox.innerText += "\n\nWould you like to play again?\n1. Yes\n2. No";
+        outputBox.innerText += "\nWould you like to play again?\n1. Yes\n2. No";
         gameState = "restart";
 	}, 1050);
     }
