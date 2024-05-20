@@ -247,7 +247,7 @@ function restartGame(input) {
     if (input === "1") {
         gameState = "narrative";
         outputBox.innerText = `(You are a knight in the village of Estarossa)\n"You need to defeat the ogre that has be threatening our village. He get's closer every day... Keep going forward and you'll find him."\n-Village Chief\n(press enter in input box to continue)`;
-        playerLife = 5;
+        playerLife = 3;
         goblinPositions = [];
         goblinsDefeated = 0;
         goblinLives = 2;
