@@ -23,7 +23,7 @@ image: /assets/img/ITCcheck1.jpeg
 
 <style>
 .image-container {
-  margin-top: 100px; /* Adjust the value as needed to create space below the title */
+  margin-top: 40px; /* Adjust the value as needed to create space below the title */
   text-align: center; /* Centers the image, optional */
 }
 
