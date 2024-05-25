@@ -15,7 +15,7 @@ cover: true
 
 </section>
 
-Hello, my name is Ryan Wong and I'm an aspiriing Penetration Tester. I'm currently attending Cal Poly Pomona (CPP).
+Hello, my name is Ryan Wong and I'm a Penetration Tester. I'm currently attending Cal Poly Pomona (CPP).
 
 I became interested in cybersecurity due to the quick development in technology. With the rapid improvement in hardware and software, it's obvious that hackers and malware was going to rapidly increase as well. So, I decided I want to defend myself and other people from such threats by finding the vulnerabilities first. As a result, I chose to be a Penetration Tester.
 
