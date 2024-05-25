@@ -1,10 +1,7 @@
 ---
 layout:      page
-title:       test blog
 sitemap:     false
 image: /assets/img/ITCcheck1.jpeg
-description: >
-    The Information Technology Competition (ITC) is a penetration testing competition where groups of up to five people form a pseudo pentesting company and compete based on findings, report writing, and presentation. In this comptition our team, Iterative Security, was given the opportunity to gain real world experience in pentesting and explore the insecurities of Active Directory, common misconfigurations, and AI
 ---
 
 <!--Adds the glitch effect -->
@@ -21,7 +18,7 @@ description: >
 <link rel="stylesheet" href="/hydejack-9.1.6.css">
 
 <div class="image-container">
-  <img src="/path/to/your/image.jpg" alt="IT Competition" class="competition-image">
+  <img src="/assets/img/ITCgroup.jpeg" alt="IT Competition" class="competition-image">
 </div>
 
 <style>
@@ -50,6 +47,9 @@ Our team was separated into different roles throughout the competition. Jerry wa
 ## Overview of the Competition
 ---
 
+"The Information Technology Competition (ITC) is a penetration testing competition where groups of up to five people form a pseudo pentesting company and compete based on findings, report writing, and presentation. In this comptition our team, Iterative Security, was given the opportunity to gain real world experience in pentesting and explore the insecurities of Active Directory, common misconfigurations, and AI."
+{:.note title="Description"}
+
 As you may have read from the description, this competition is a pentesting simulation where teams create their own company and have to conduct a full, professional pentest on a fake company. This environment included various trending and unique systems such as:
 
 - Active Directory
@@ -72,11 +72,13 @@ I forgot the password was, but it was a very simple password and easy to crack u
 
 Once we got access to the Technician account, we were able to perform remote code execution and give us a reverse shell to the Kiosk computer itself. However, the shell was very unstable and frustrating to use. So, we spawned our own shell by using the command "python3 -c ‘import pty;pty.spawn("/bin/bash")". This is a much more stable shell and allowed for better control over the computer. 
 
-![Kiosk reverse shell](/assets/img/Kisok-rev.jpeg)
+<div class="image-container">
+  <img src="/assets/img/Kiosk-rev.jpeg" alt="Kiosk reverse shell" class="competition-image">
+</div>
 
 After this, we downlaoded and ran LinEnum. We found an executable file called specter-analytics.sh. This contained an environment variable called $SPECTER_AI_TOOL. We reconfigured this to spawn a reverse shell. When we run the file with sudo permissions we were able to gain root. 
 
-This wasn't my area of the pentest, however, if you would like to learn more about this section, feel free to contact our team leader through discord: jsoulis or [Linkedin](https://www.linkedin.com/in/gerardosolisit/)
+This wasn't my area of the pentest, however, if you would like to learn more about this section, feel free to contact our team leader through discord: @jsoulis or [Linkedin](https://www.linkedin.com/in/gerardosolisit/)
 
 
 ### Domain Controller (Windows Server - 192.168.10.5)
