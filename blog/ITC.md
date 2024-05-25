@@ -9,7 +9,7 @@ image: /assets/img/ITCcheck1.jpeg
 
   <link rel="stylesheet" href="/style.css">
   <div class="hero-container">
-	<h1 class="hero glitch layers" data-text="Information Technology Competition (ITC)" style="position: absolute; top: 0px; left: 0px; margin-top: -15px;">
+	<h1 class="hero glitch layers" data-text="Information Technology Competition (ITC)" style="position: absolute; top: 0px; left: 0px; margin-top: -7.5px;">
   	<span>Information Technology Competition (ITC)</span></h1>
   </div>
 
