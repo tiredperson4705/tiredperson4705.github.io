@@ -20,8 +20,23 @@ description: >
 <!--this css code will fix all color issues -->
 <link rel="stylesheet" href="/hydejack-9.1.6.css">
 
-![ITC group photo](/assets/img/ITCgroup.jpeg)
+<div class="image-container">
+  <img src="/path/to/your/image.jpg" alt="IT Competition" class="competition-image">
+</div>
 
+<style>
+.image-container {
+  margin-top: 100px; /* Adjust the value as needed to create space below the title */
+  text-align: center; /* Centers the image, optional */
+}
+
+.competition-image {
+  max-width: 100%; /* Ensures the image is responsive */
+  height: auto;
+}
+</style>
+
+* this text will be replaced
 {:toc}
 
 ## About the Team
@@ -61,7 +76,7 @@ Once we got access to the Technician account, we were able to perform remote cod
 
 After this, we downlaoded and ran LinEnum. We found an executable file called specter-analytics.sh. This contained an environment variable called $SPECTER_AI_TOOL. We reconfigured this to spawn a reverse shell. When we run the file with sudo permissions we were able to gain root. 
 
-This wasn't my area of the pentest, however, if you would like to learn more about this section, feel free to contact our team leader through discord: jsoulis or [LinkedIN](https://www.linkedin.com/in/gerardosolisit/)
+This wasn't my area of the pentest, however, if you would like to learn more about this section, feel free to contact our team leader through discord: jsoulis or [Linkedin](https://www.linkedin.com/in/gerardosolisit/)
 
 
 ### Domain Controller (Windows Server - 192.168.10.5)
