@@ -9,7 +9,7 @@ image: /assets/img/ITCcheck1.jpeg
 
   <link rel="stylesheet" href="/style.css">
   <div class="hero-container">
-	<h1 class="hero glitch layers" data-text="Information Technology Competition (ITC)" style="position: absolute; top: 5px; left: 0px;">
+	<h1 class="hero glitch layers" data-text="Information Technology Competition (ITC)" style="position: absolute; top: 0px; left: 0px;">
   	<span>Information Technology Competition (ITC)</span></h1>
   </div>
 
@@ -27,9 +27,19 @@ image: /assets/img/ITCcheck1.jpeg
   text-align: center; /* Centers the image, optional */
 }
 
+.normal-photo {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center; /* Centers the image, optional */
+}
+
 .competition-image {
   max-width: 100%; /* Ensures the image is responsive */
   height: auto;
+}
+
+body {
+  background-color: #2b2b2b;
 }
 </style>
 
@@ -72,7 +82,7 @@ I forgot the password was, but it was a very simple password and easy to crack u
 
 Once we got access to the Technician account, we were able to perform remote code execution and give us a reverse shell to the Kiosk computer itself. However, the shell was very unstable and frustrating to use. So, we spawned our own shell by using the command "python3 -c ‘import pty;pty.spawn("/bin/bash")". This is a much more stable shell and allowed for better control over the computer. 
 
-<div class="image-container">
+<div class="normal-photo">
   <img src="/assets/img/Kiosk-rev.jpeg" alt="Kiosk reverse shell" class="competition-image">
 </div>
 
