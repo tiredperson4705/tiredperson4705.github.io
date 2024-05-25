@@ -9,7 +9,7 @@ image: /assets/img/ITCcheck1.jpeg
 
   <link rel="stylesheet" href="/style.css">
   <div class="hero-container">
-	<h1 class="hero glitch layers" data-text="Information Technology Competition (ITC)" style="position: absolute; top: 0px; left: 0px;">
+	<h1 class="hero glitch layers" data-text="Information Technology Competition (ITC)" style="position: absolute; top: 0px; left: 0px; margin-top: -15px;">
   	<span>Information Technology Competition (ITC)</span></h1>
   </div>
 
@@ -60,15 +60,23 @@ Our team was separated into different roles throughout the competition. Jerry wa
 "The Information Technology Competition (ITC) is a penetration testing competition where groups of up to five people form a pseudo pentesting company and compete based on findings, report writing, and presentation. In this comptition our team, Iterative Security, was given the opportunity to gain real world experience in pentesting and explore the insecurities of Active Directory, common misconfigurations, and AI."
 {:.note title="Description"}
 
-As you may have read from the description, this competition is a pentesting simulation where teams create their own company and have to conduct a full, professional pentest on a fake company. This environment included various trending and unique systems such as:
+To summarize the description, this competition is a pentesting simulation where teams create their own company and have to conduct a full, professional pentest on a fake company. This environment included various trending and unique systems such as:
 
 - Active Directory
-- Artificial Intelligence (Specter AI)
-- Linux Hosting GitLab
+- AI Webpage (Specter AI)
+- GitLab
 - A Tram
 - Segmented Networks (CORP and RND)
 
 While our team wasn't able to compromise the entire system during the competition, we were able to gain full admin access to 7/9 machines given to us. The methodology of our team wasn't for stealth. We essentially did whatever it took to gain access to the network. This approach obviously wouldn't pass in the real world, but it was a good learning experience in understanding what can and can't be done. 
+
+For reference, this is our interpretation of the topology during the pentest:
+
+<div class="normal-photo">
+  <img src="/assets/img/ITC-topology.jpeg" alt="network topology" class="competition-image">
+</div>
+
+Also, if you look closely you can see our attack paths throughout the entire engagement. 
 
 
 ## Corporate Network 
@@ -95,6 +103,10 @@ This wasn't my area of the pentest, however, if you would like to learn more abo
 
 The domain controller was our main attacking point and is what got us access to every machine on the network. We started off with the typical nmap scan using the flags -sV -sC -vv. This gave us a long and comprehensive report on what ports are open and data like NetBios Name, domain name, and so on. You can view these at the very bottom of the report. I also used a tool called kerbrute to enumerate users over kerberos. This gave me almost all of the users on the network. 
 
+<div class="normal-photo">
+  <img src="/assets/img/ITC-kerbrute.jpeg" alt="kerbrute user enum" class="competition-image">
+</div>
+
 The initial access gave us trouble at the very beginning because there wasn't much that was misconfogured at first glance. No anonymous logins, no permissions for rpcclient enumeration, no asreproasting, and so on. However, I scanned the network using Nessus and was able to find a very valuable vulnerability called ZeroLogon. This exxploit has become my favorite due to how common it is and how easy it is to execute. 
 
 However, the downside of this vulnerabiltiy is that it breaks the active directory a bit. What ZeroLogon does is it essentially resets all hashes on the domain controller to null. This would allow anyone to login with a blank password. So, by using the impacket tool "secretsdump", we're able to retrieve the hashes of all users on the domain and login through evil-winrm by performing a pass the hash. But the bad thing about this is that user may not be able to log in for some time until I restore the passwords. They obviously went after me duirng the presentation because of this, but it was still a good experience in understanding what I shouldn't do. 
@@ -109,6 +121,10 @@ The final finding on the Domain Controller was the plain text passwords in the r
 The Files machine was interesting. It didn't seem like there was much upon initial exploit, but it actually had quite a bit. 
 
 When we ran secretsdump on the DC, it also spit out some plain text credentials for the rlopez user. This user was the local admin for the Files computer and the Router. He reused his password multiple times which is also how we got into the router. 
+
+<div class="normal-photo">
+  <img src="/assets/img/ITC-secretsdump.jpeg" alt="secretsdump for rlopez" class="competition-image">
+</div>
 
 The funny thing about this machine is that we realized we went about the whole competition the wrong way. rlopez has a really weak password. So, it's possible that we could've used tools like Hydra to bruteforce credentials over rdp. We then would've went in a chain from Files to Win10 to router to DC. At least that's how other teams did it. 
 
