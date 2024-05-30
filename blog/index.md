@@ -3,7 +3,7 @@ layout: page
 description: >
   This is a test layout
 hide_description: true
-sitemap: false
+sitemap: true
 permalink: /blog/
 cover: true
 ---
@@ -91,8 +91,19 @@ cover: true
 <h2 class="header">Hack The Box</h2>
 ---
 <div style="display: flex; flex-wrap: wrap; gap: 20px;">
-<!--Add htb posts here: -->
 
+<div style="width: 400px;">
+  <div style="flex: 1 1 calc(50% - 10px); box-sizing: border-box; position: relative; height: 400px;">
+    <a href="https://tiredperson47.github.io/blog/Authority" style="display: block; position: relative; height: 100%; width: 100%;">
+      <img src="/assets/img/Authority.png" alt="Authority HTB" style="width: 100%; height: 100%; max-height: 275px; object-fit: cover; border-radius: 8px;"/>
+     <div style="padding: 1em; background: #505050; color: white; border-radius: 0 0 8px 8px; position: absolute; bottom: 0; left: 0; right: 0; max-height: 130px; overflow-y: auto;">
+        <h3 style="margin-top: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Authority</h3>
+        <p style="white-space: normal; margin: 0;">This is an interesting box that takes advantage of misconfgured AD CS templates, anonymous login, abusing protocols, and abusing MachineAccountQuota (MAQ) and Resource Based Constrained Delegation (RBCD) permissions to impersonate other users. This is quite similar to the Support box that I will write about in the future.</p>
+      </div>
+    </a>
+  </div>
+</div> 
+<!--Add htb posts here: -->
 </div>
 
 

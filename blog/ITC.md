@@ -1,6 +1,6 @@
 ---
 layout:      page
-sitemap:     false
+sitemap:     true
 image: /assets/img/ITCcheck1.jpeg
 ---
 
@@ -53,7 +53,6 @@ Our team is composed of five members. Our team leader, Gerardo (Jerry) Solis, Lu
 
 Our team was separated into different roles throughout the competition. Jerry was in charge of the AI pentesting, while I handled the network side. Unforturnatly, due to schedule conflicts, our other members weren't able to do much pentesting. However, this is by no means to downplay their efforts in the competition. They were invaluable teammates when it came to the organization of the team and the report writing, which I will have links to at the end. I recommend reading the blog with the final report open. 
 
-
 ## Overview of the Competition
 ---
 
@@ -78,7 +77,6 @@ For reference, this is our interpretation of the topology during the pentest:
 
 Also, if you look closely you can see our attack paths throughout the entire engagement. 
 
-
 ## Corporate Network 
 ---
 
@@ -98,7 +96,6 @@ After this, we downlaoded and ran LinEnum. We found an executable file called sp
 
 This wasn't my area of the pentest, however, if you would like to learn more about this section, feel free to contact our team leader through discord: @jsoulis or [Linkedin](https://www.linkedin.com/in/gerardosolisit/)
 
-
 ### Domain Controller (Windows Server - 192.168.10.5)
 
 The domain controller was our main attacking point and is what got us access to every machine on the network. We started off with the typical nmap scan using the flags -sV -sC -vv. This gave us a long and comprehensive report on what ports are open and data like NetBios Name, domain name, and so on. You can view these at the very bottom of the report. I also used a tool called kerbrute to enumerate users over kerberos. This gave me almost all of the users on the network. 
@@ -114,7 +111,6 @@ However, the downside of this vulnerabiltiy is that it breaks the active directo
 To achieve persistence, I identified the local admin of each computer and logged into that user. In this case the Administrator user. After that, I created my own user called "admin" and created an RDP backdoor. Now, one of the feedback I got was the use of the word backdoors during the presentation. The judges didn't like it becasue when people hear of backdoors, they think of a malicious software and such. While the term was correctly used, it's better to say persistence in such scenarios. 
 
 The final finding on the Domain Controller was the plain text passwords in the recycle bin. Because the computer had RDP open, we were able to RDP into the administrator user and have a GUI. This allowed us to find files that would be difficult or tedious to find otherwise. However, when we tested the credentials on the RND network, none of them worked. So these were probably default passwords the company used for new users. If you go to the Low Findings section, you will see the summary of the finding. 
-
 
 ### Files (Windows 10 - 192.168.10.10)
 
@@ -134,7 +130,6 @@ Anyways, one of the files contained the default credentials for janderson. One o
 
 Other than this, there wasn't much else about this machine.
 
-
 ### Windows 10 (Windows 10 - 192.168.10.20)
 
 There really wasn't anything on the Win10 machine. There was no need for privilege escalation because of ZeroLogon and the audit file from the Files machine. After the update report we did notice that the password for janderson changed. So, we couldn't rdp into him anymore. However, that wasn't an issue since we had persistence on the machine
@@ -143,7 +138,6 @@ As I mentioned before, janderson was the local admin of the Win10 machine. Upon 
 
 But yeah, Win10 was an empty box. 
 
-
 ### Router (Linux - 192.168.0.1)
 
 For the router, I mentioned earlier that rlopez used the same password multiple times. Well, the router was running a pfsense webpage on port 80, and to log in, we used rlopez's password, and it worked. 
@@ -151,7 +145,6 @@ For the router, I mentioned earlier that rlopez used the same password multiple 
 What other teams did was they changed the firewall rules so that they would allow their kali machines to connect to the RND network. This would get rid of the need for proxychains or having to pentest from a windows computer. We didn't think about doing this becasue we didn't want to break the network in any way. However, during the feedback session, they urged us to be more open with our employers becasue that's a big part of pentesting, which I agree with. I think if we were more open and asked if we could change the firewall rules, we could've done much more on the RND network. 
 
 Another thing the other teams found was the administrator password for the DC within the pfsense. Apparently it was just laying there in plain text, but I never saw it. This is obviously a high risk vulnerability due to the weak password of rlopez and the plain text credentials. This would have been a good finding for our report. 
-
 
 ## Research and Development Network
 ---
@@ -168,7 +161,6 @@ They said that this machine was like a gold mine of information, however we don'
 
 This all would've been so fun to see for ourselves, but we just haven't had time to contiue the pentest after the competition. 
 
-
 ## Conclusion
 ---
 
@@ -176,8 +168,8 @@ Overall, this was a really fun competiton. It gave me real world experience and 
 
 If other schools have the opportunity to compete in such a competiton, I say do it even if it costs $50 per person. This was a valuable experience that will push me forward in my pentesting journey, and I hope others will have a chance to compete in this competition. 
 
-
 ## Report Links
+---
 
 - [Report (pdf download link)](https://cdn.discordapp.com/attachments/1222369736889733173/1233662035103977503/PNVI_FINALREPORT.pdf?ex=66522a0d&is=6650d88d&hm=365517af0d88bc6fe14138d3ffbb402844a0901db612ae240126c390f124bd03&) 
 - [Lore](https://docs.google.com/document/d/1zWjrjKb685FCOKeRdAqe9yQVZQX4VnGAuN3ybLTRqyU/edit?usp=sharing)

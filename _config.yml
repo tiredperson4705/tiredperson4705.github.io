@@ -53,6 +53,8 @@ menu:
     url:               /blog/
   - title:             Projects
     url:               /project/
+  - title:             Cool Concepts
+    url:               /concepts/
   
     
 
