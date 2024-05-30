@@ -9,7 +9,7 @@ image: /assets/img/Authority.png
 
   <link rel="stylesheet" href="/style.css">
   <div class="hero-container">
-	<h1 class="hero glitch layers" data-text="Authority" style="position: absolute; top: 0px; left: 0px; margin-top: 0px;">
+	<h1 class="hero glitch layers" data-text="Authority" style="position: absolute; top: 0px; left: 50%; transform: translateX(-50%); margin-top: 0px;">
   	<span>Authority</span></h1>
   </div>
 
@@ -49,14 +49,20 @@ body {
 ## Overview
 ---
 
-This is a medium box rated box that is already retired. This means that normal users will not be able to access this machine (assumably). This box goes over interesting topics such as Certificate Authority (CA), Active Directory Certificate Services (AD CS), Ansible hashes, certipy, PassTheCert tool, Kerberos, and impersonation. 
+This is a medium box rated box that is already retired. This means that normal users will not be able to access this machine (presumably). This box goes over interesting topics such as Certificate Authority (CA), Active Directory Certificate Services (AD CS), Ansible hashes, certipy, PassTheCert tool, Kerberos, and impersonation. 
 
 This is interesting because in the 2024 ITC competition, there was a CA machine that we compromised, but didn't know what to do with. Granted we used Zerologon to gain root, but this would've been a great find to add on the report. It's definitely something I will look for in future pentests.
 
 ## Information Gathering
 ---
 
-We start off with the typical namp scan using the flags -sV -sC. This gave us the following information:
+We start off with the typical nmap scan checking for the service version and using defualt scripts for enumeration. 
+
+~~~bash
+nmap -sC -sV 10.10.11.222
+~~~
+
+This gave us the following information:
 
 <div class="normal-photo">
   <img src="/assets/img/Authority-nmap.jpeg" alt="nmap scan" class="competition-image">
@@ -91,7 +97,9 @@ smbclient '\\10.10.11.222\Development' -N -c 'prompt OFF;recurse ON;cd 'automati
 ## Password Cracking
 ---
 
-After a lot of searching and some help through the guided mode, I found out there were ansible hashes stored in the /Automation/Ansible/PWM/defaults/main.yml file. First I remove the blank spaces within the hash by using an online tool. I then added each hash into their own file. (make sure there is a new line between AES256 and the hash)
+After a lot of searching and some help through the guided mode, I found out there were ansible hashes stored in the /Automation/Ansible/PWM/defaults/main.yml file. Ansible vaults are used to securely store and sensitive information in ansible playbooks. However as we will soon see, it's not actually secure. 
+
+First I remove the blank spaces within the hash by using an online tool. I then added each hash into their own file. (make sure there is a new line between AES256 and the hash)
 
 Here's an example:
 ~~~
@@ -205,7 +213,7 @@ This is where what happened to me differed from what happened in the walkthrough
 KDC_ERR_PADATA_TYPE_NOSUPP(KDC has no support for padata type)
 ~~~
 
-What this means is that the DC doesn't support Public Key Cryptography for initial authentication (PKINIT). PKINIT is a Kerberos mechanism where you can use certificates as a pre-authentication mechanism. [(source)](https://offsec.almond.consulting/authenticating-with-certificates-when-pkinit-is-not-supported.html) Because this is disabled, we can't use certipy to authenticate to the administrator user with the .pfx file. However, I was able to authenticate and get the NT hash without having to work around this error. Because my way is boring, I'll show the way the walkthrough did it for education sake. 
+What this means is that the DC doesn't support Public Key Cryptography for initial authentication (PKINIT). PKINIT is a Kerberos mechanism where you can use certificates as a form of pre-authentication. [(source)](https://offsec.almond.consulting/authenticating-with-certificates-when-pkinit-is-not-supported.html) Because this is disabled/unsupported in this box, we can't use certipy to authenticate to the administrator user with the .pfx file. However, I was able to authenticate and get the NT hash without having to work around this error. Because my way is boring, I'll show the way the walkthrough did it for education sake. 
 
 What the walkthrough did was they extracted the .key and .crt files from the .pfx file that we created with the following commands:
 
@@ -216,7 +224,7 @@ openssl pkcs12 -in administrator_authority.pfx -nocerts -out administrator.key
 openssl pkcs12 -in administrator_authority.pfx -clcerts -nokeys -out administrator.crt
 ~~~
 
-It then used a python tool called PassTheCert by AlmondOffSec. What they do is they use the files we extracted to "authenticate" and use administrator privileges (most likely because that's the user we requested the certificate for). Then we modify the computer we created to have RBCD or delegation rights over the DC. Now, because the computer we own has RBCD (delegation) rights, we can impersonate the Administrator user because our "something$" computer is trusted to act on behalf of other users. 
+It then used a python tool called PassTheCert by AlmondOffSec. What they do is they use the files we extracted to "authenticate" and use administrator privileges (most likely because that's the user we requested the certificate for). Then we modify the computer we created to have RBCD or delegation rights over the DC. Now, because the computer we own has RBCD (delegation) rights, we can use our "something$" computer to authenticate to a service on behalf of the administrator user. This is generally called impersonation. 
 
 ~~~bash
 # This uses the administrator's privilege (presumably) to modify the "something$" computer to have delegation rights. 
