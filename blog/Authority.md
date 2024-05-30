@@ -62,7 +62,8 @@ We start off with the typical namp scan using the flags -sV -sC. This gave us th
   <img src="/assets/img/Authority-nmap.jpeg" alt="nmap scan" class="competition-image">
 </div>
 
-We find the domain of the server in the nmap scan and immediately add it to our /etc/hosts file. With this, our machine will be able to resolve to the authority.htb domain. {:.note title="Important"}
+We find the domain of the server in the nmap scan and immediately add it to our /etc/hosts file. With this, our machine will be able to resolve to the authority.htb domain.
+{:.note title="Important"}
 
 I noticed that it was running a website, so I tried to visit it. However it was essentially a blank website that led to an actual microsoft website (probably). I didn't want to take the risk so I just left the website alone. This was the same as ITC's CA machine under the RND network, so I got interested when I saw this website. 
 
@@ -86,7 +87,6 @@ The login for the Department Shares was a failure, however the login for the Dev
 ~~~bash
 smbclient '\\10.10.11.222\Development' -N -c 'prompt OFF;recurse ON;cd 'automation\ansible';lcd '~';mget *'`
 ~~~
-Here's the link to the code https://superuser.com/questions/856617/how-do-i-recursively-download-a-directory-using-smbclient {:.figcaption}
 
 ## Password Cracking
 ---
@@ -233,7 +233,12 @@ impacket-secretsdump -k -no-pass authority.htb/Administrator@authority.authority
 
 You will then gain a NT hash which you can then pass the second half of into evil-winrm. Finally you gain admin privileges and you find the flag under the desktop directory under administrator.
 
-Here's a picture to visualize what we did in the privesc: (this my interpretation of the privesc and maybe inaccurate)
+~~~bash
+evil-winrm -u administrator -H 6961f422924da90a6928197429eea4ed -i 10.10.11.222
+~~~
+
+Here's a picture to visualize what we did in the privesc:
+(this my interpretation of the privesc and maybe inaccurate)
 
 <div class="normal-photo">
   <img src="/assets/img/Authority-privesc.jpeg" alt="connection tab" class="competition-image">
